@@ -31,16 +31,18 @@ public class DemoTest {
         desiredCapabilities.setCapability("platformName", Platform.ANDROID.name());
         desiredCapabilities.setCapability("noReset", "true");
         desiredCapabilities.setCapability("appPackage", "com.tencent.wework");
-        desiredCapabilities.setCapability("appActivity", ".launch.WwMainActivity");
+        desiredCapabilities.setCapability("appActivity", ".launch.LaunchSplashActivity");
         desiredCapabilities.setCapability("ensureWebviewsHavePages", true);
+        desiredCapabilities.setCapability("deviceName","5GK4C19408007222");
 
-        URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
+        URL remoteUrl = new URL("http://0.0.0.0:4723/wd/hub");
+
 
         driver = new AndroidDriver(remoteUrl,desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(60));
-//        wait.until(driver -> driver.findElements(By.xpath("//*[@text='通讯录']")).size()>0);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='通讯录']")));
+      //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    //    WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(60));
+     //  wait.until(driver -> driver.findElements(By.xpath("//*[@text='通讯录']")).size()>0);
+    //   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='通讯录']")));
 
 
     }
