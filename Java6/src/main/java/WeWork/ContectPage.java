@@ -1,5 +1,6 @@
 package WeWork;
 
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
@@ -35,15 +36,15 @@ public class ContectPage extends BasePage{
     public ContectPage add(String name , String phone){
         //必须及时findElement，不能缓存,或者用以前的，窗口变化后，控件就会发生变化所以就无法复用
         memu= MobileBy.id("ixb");
-        driver.findElement(memu).click();
+        //driver.findElement(memu).click();
+        find(memu).click().find(addMember).click().find(menu).click();
 
-        driver.findElement(addMember).click();
-
-        driver.findElement(menu).click();
-        driver.findElement(nameInput).sendKeys(name);
-        driver.findElement(phoneInput).sendKeys(phone);
-        driver.findElement(saveButton).click();
-        driver.findElement(closeButton).click();
+       /* driver.findElement(addMember).click();
+        driver.findElement(menu).click();*/
+        find(nameInput).sendKeys(name);
+        find(phoneInput).sendKeys(phone);
+        find(saveButton).click();
+        find(closeButton).click();
         return this;
     }
     public Member find(String keyword){

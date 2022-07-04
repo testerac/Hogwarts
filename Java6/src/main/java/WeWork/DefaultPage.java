@@ -1,5 +1,6 @@
 package WeWork;
 
+
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,12 +20,13 @@ public class DefaultPage extends BasePage{
     public DefaultPage(AppiumDriver driver) {
         super(driver);
         //启动时间很长,所以加一个显示等待,不要使用隐世等待
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='通讯录']")));
+       /* WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='通讯录']")));*/
+        wait(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='通讯录']")));
     }
 
     public ContectPage toContect(){
-        driver.findElement(contect_tab).click();
+        find(contect_tab).click();
         return new ContectPage(driver);
 
     }
