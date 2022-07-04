@@ -24,7 +24,7 @@ public class DefaultPage extends BasePage{
     }
 
     public ContectPage toContect(){
-        driver.findElements(contect_tab).click();
+        driver.findElement(contect_tab).click();
         return new ContectPage(driver);
 
     }

@@ -20,6 +20,13 @@ public class ContectPage extends BasePage{
     private final By saveButton = By.xpath("//*[@text='保存']");
     private final By closeButton = By.id("ix5");
     private By memu;
+    By searchButton= By.id("com.tencent.wework:id/ixy");
+    By editText = By.xpath("//android.wiget.EditText");
+    By searchResultList = By.id("com.tencent.wework:id/e4x");
+    By infoButton = By.id("com.tencent.wework:id/ix5");
+    By iconButton = By.id("com.tencent.wework:id/i1v");
+    By nameButton = By.id(" ic4");
+    By departText = By.id("bq_");
 
     public ContectPage(AppiumDriver driver) {
         super(driver);
@@ -28,19 +35,29 @@ public class ContectPage extends BasePage{
     public ContectPage add(String name , String phone){
         //必须及时findElement，不能缓存,或者用以前的，窗口变化后，控件就会发生变化所以就无法复用
         memu= MobileBy.id("ixb");
-        driver.findElements(memu).click();
+        driver.findElement(memu).click();
 
-        driver.findElements(addMember).click();
+        driver.findElement(addMember).click();
 
-        driver.findElements(menu).click();
-        driver.findElements(nameInput).sendKeys(name);
-        driver.findElements(phoneInput).sendKeys(phone);
-        driver.findElements(saveButton).click();
-        driver.findElements(closeButton).click();
+        driver.findElement(menu).click();
+        driver.findElement(nameInput).sendKeys(name);
+        driver.findElement(phoneInput).sendKeys(phone);
+        driver.findElement(saveButton).click();
+        driver.findElement(closeButton).click();
         return this;
     }
     public Member find(String keyword){
-        return new Member("1","1");
+        driver.findElement(searchButton).click();
+        driver.findElement(editText).sendKeys(keyword);
+        driver.findElement(searchResultList).click();
+    /*    driver.findElement(infoButton).click();
+        driver.findElement(iconButton).click();*/
+        String name = driver.findElement(nameButton).getText();
+        String departName=driver.findElement(departText).getText();
+        driver.navigate().back();
+        driver.navigate().back();
+        return new Member(name,null,departName);
+
     }
 
     public DefaultPage back() {

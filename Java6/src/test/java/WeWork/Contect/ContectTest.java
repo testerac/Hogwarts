@@ -4,6 +4,7 @@ import WeWork.App;
 import WeWork.ContectPage;
 import WeWork.DefaultPage;
 import WeWork.Member;
+import com.sun.org.apache.xpath.internal.functions.FuncQname;
 import org.junit.jupiter.api.*;
 
 import java.net.MalformedURLException;
@@ -34,10 +35,13 @@ public class ContectTest {
         contectPage = defaultPage.toContect();
     }
     @Test
-    void add(){
-        Member member=contectPage.add("1","1").find("1");
-        assertThat(member.getName(),equalTo("1"));
+    void add() throws InterruptedException{
+        String name = "13201870905";
+        Member member=contectPage.add(name,name).find(name);
+        assertThat(member.getName(),equalTo(name));
         assertThat(member.getPhone(),equalTo("1"));
+        assertThat(member.getDepart(),equalTo("自由测试人"));
+
 
     }
     @AfterEach

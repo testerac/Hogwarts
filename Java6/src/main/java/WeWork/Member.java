@@ -9,10 +9,12 @@ package WeWork;
 public class Member {
     String name;
     String phone;
+    String depart;
 
-    public Member(String name, String phone) {
+    public Member( String name, String phone,String depart) {
         this.name = name;
         this.phone = phone;
+        this.depart = depart;
     }
 
 
@@ -25,4 +27,7 @@ public class Member {
         return phone;
     }
 
+    public String getDepart() {
+        return depart;
+    }
 }
