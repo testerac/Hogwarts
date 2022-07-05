@@ -1,0 +1,17 @@
+# uuid: package.class.method
+name: search
+before_all: []
+after_all: []
+steps:
+  - chrome:
+  - get:
+  - find: [id, search_button]
+  - click:
+  - find: [id, search_button]
+  - sendkeys: 内推 BAT
+  - find: [css, .topic-title]
+  - getText: title
+  - assertThat: [ title, contains:[内推 BAT] ]
+
+
+
