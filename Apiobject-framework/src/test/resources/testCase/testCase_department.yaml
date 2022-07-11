@@ -1,0 +1,9 @@
+#ApiTestCaseModel
+name: departmentTestCase
+description: 部门相关，增删改查用例
+steps:
+  - api: tokenhelper
+    action: getToken
+    acturalParameter: ["ww5ef451bf006ec894",""]
+    saveGlobal:
+      accesstoken: access_token

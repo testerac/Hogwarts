@@ -1,0 +1,11 @@
+name: search
+before_all: []
+after_all: []
+
+steps:
+  - wework.new: [WeWork]
+  - wework.login: [abc,123]
+  - return: main_page
+  - main_page.toMemberAdd: []
+  - return: contact_page
+  - po: [wework, login, user, pass, other_page]

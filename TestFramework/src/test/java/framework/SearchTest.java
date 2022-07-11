@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.WebDriver;
@@ -54,7 +53,7 @@ public class SearchTest {
         testCase.run();
     }
 
-    static Stream<TestCase> data() throws IOException {
+    static Stream<POTestCase> data() throws IOException {
         /**
          * 统一的数据读取
          */
@@ -65,8 +64,8 @@ public class SearchTest {
     }*/
 
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        TestCase testCase = mapper.readValue(new File("src/test/java/framework/search.yaml"),
-                TestCase.class);
+        POTestCase testCase = mapper.readValue(new File("src/test/java/framework/search.yaml"),
+                POTestCase.class);
         return Stream.of(testCase);
 
     }

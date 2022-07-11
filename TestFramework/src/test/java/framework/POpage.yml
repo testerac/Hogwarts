@@ -1,0 +1,9 @@
+name: SearchPage
+search:
+  - click:
+  - sendkeys:
+
+add:
+  -xx
+  -ddd
+  -ffff
